@@ -11,13 +11,13 @@ interface HeaderProps {
 export function Header({children, topic, additionalText, give_classes}: HeaderProps) {
  
   return (
-    <header className={`w-full h-[58rem] ${give_classes && 'h-[50rem]'} flex flex-col gap-10 bg-primary-violet lg:h-[35rem] p-10 lg:px-40 lg:gap-20`}>
+    <header className={`w-full ${give_classes && 'h-[30rem]'} flex flex-col gap-10 bg-primary-violet lg:h-[35rem] p-10 lg:px-40 lg:gap-20`}>
       <PreviousLinks />
-      <div className="w-full text-left lg:pl-[11rem] lg:w-[50%]">
+      <div className="w-full text-left mx-auto lg:ml-[8.6rem] xl:ml-[14.5rem] ">
         <h1 className="text-[2.8rem] text-white font-bold lg:text-[3.5rem]">
           {topic}
         </h1>
-        <span className="text-[1.8rem] text-primary-inputs">
+        <span className="text-[1.6rem] lg:text-[1.8rem] text-primary-inputs">
           {additionalText}
         </span>
       </div>

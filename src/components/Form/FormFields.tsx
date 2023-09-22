@@ -5,7 +5,6 @@ interface FormFieldsProps {
   topic: string;
   borderTop?: boolean,
   buttonSchedule?: boolean,
-  onAddNewSchedule?: () => void,
 }
 
 export function FormFields({topic, children, borderTop, buttonSchedule, onAddNewSchedule }: FormFieldsProps) {

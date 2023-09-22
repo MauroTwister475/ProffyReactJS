@@ -6,7 +6,6 @@ import { Header } from "../../components/Header";
 import { BlockField } from "../../components/Form/BlockField";
 import { Form } from "../../components/Form";
 import { ProffyInfo, subjects, weekday_db } from "../../Utils/schoolData";
-// import { useQuery } from "react-query";
 
 function StudyComponent() {
   const [proffyProfile, setProffyProfile] = useState<ProffyInfo[]>([]);
@@ -18,7 +17,6 @@ function StudyComponent() {
   const [fetching, setFetching] = useState(false);
 
   const FILTER_URL = `/study?subject=${subject}&weekday=${weekday}&time=${time}`
-  console.log({subject, weekday, time});
 
   async function sendDataToQuery(e: FormEvent) {
     e.preventDefault();
@@ -37,7 +35,7 @@ function StudyComponent() {
       className="w-screen h-screen" 
     >
       <Header topic='Esses são os proffys disponíveis.'>
-        <div className="w-full flex flex-col mx-auto gap-4 lg:flex-row lg:w-[80%] lg:mt-[2rem] xl:mt-[3rem]">
+        <div className="w-full flex flex-col mx-auto gap-4 lg:flex-row lg:w-[80%] lg:mt-[2.8rem] xl:mt-[8rem]">
           <BlockField topic="Matéria">
             <Form.Select 
               label=""
@@ -86,10 +84,10 @@ function StudyComponent() {
             </button>
           </BlockField>
         </div>
-      </Header> ? 
+      </Header> 
       <main className="w-full h-auto flex flex-col items-center justify-center px-10 py-20 lg:py-32">
       {!fetching ? 
-          <span className="text-zinc-500 text-[2rem]">
+          <span className="text-zinc-500 text-[2rem] lg:text-[2.8rem] xl:text-[3.5rem]">
             Faça uma pesquisa
           </span>
          : (proffyProfile.length !== 0 ? 
@@ -98,7 +96,7 @@ function StudyComponent() {
               whatsAppLink={whatsAppLink}
             />
           :
-          <span className="text-zinc-500 text-[2rem] text-center">
+          <span className="text-zinc-500 text-[2rem] text-center lg:text-[2.8rem] xl:text-[3.5rem]">
             Nenhum professor encontrado com base a sua pesquisa.
           </span>)
         }
@@ -108,16 +106,3 @@ function StudyComponent() {
 }
 
 export const Study = memo(StudyComponent);
-
-
-/*
-
-{proffyProfile.length !== 0 ? 
-          <ProffyProfile 
-            proffyProfile={proffyProfile}
-          />: 
-          <span className="text-zinc-500 text-[2rem]">
-            Nenhum professor encontrado
-          </span>
-        }
-*/

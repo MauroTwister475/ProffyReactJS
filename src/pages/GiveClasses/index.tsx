@@ -1,4 +1,4 @@
-import { useState, useCallback, FormEvent, memo } from "react";
+import { useState, FormEvent, memo } from "react";
 import { api } from "../../api";
 
 import { Header } from "../../components/Header";
@@ -23,29 +23,6 @@ function GiveClassesComponent() {
   const [Weekday, setWeekday] = useState(''); 
   const [time_from, setTime_from] = useState(''); 
   const [time_to, setTime_to] = useState(''); 
-
-  const [schedule, setSchedule] = useState([
-    <Schedule 
-      Weekday={Weekday}
-      time_from={time_from} 
-      time_to={time_to} 
-      onSetWeekday={setWeekday}
-      onSetTimeFrom={setTime_from}
-      onSetTimeTo={setTime_to}
-    />
-  ]);
-
-  const onSetNewScheduleItem = useCallback(() => {
-    setSchedule(lastSchedule => [...lastSchedule, 
-    <Schedule 
-      Weekday={Weekday} 
-      time_from={time_from} 
-      time_to={time_to} 
-      onSetWeekday={setWeekday}
-      onSetTimeFrom={setTime_from}
-      onSetTimeTo={setTime_to}
-    />]);
-  }, []);
 
   async function onSubmitForm(e: FormEvent) {
     e.preventDefault();
@@ -154,9 +131,15 @@ function GiveClassesComponent() {
             topic="Horários disponíveis"
             borderTop
             buttonSchedule
-            onAddNewSchedule={onSetNewScheduleItem}
           >
-           {schedule} 
+            <Schedule 
+               Weekday={Weekday}
+               time_from={time_from} 
+               time_to={time_to} 
+               onSetWeekday={setWeekday}
+               onSetTimeFrom={setTime_from}
+               onSetTimeTo={setTime_to}
+             />
           </Form.FormFields>
         </FormContainer>
         <Form.FormFooter />
