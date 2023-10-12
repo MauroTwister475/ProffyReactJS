@@ -7,7 +7,7 @@ interface FormFieldsProps {
   buttonSchedule?: boolean,
 }
 
-export function FormFields({topic, children, borderTop, buttonSchedule, onAddNewSchedule }: FormFieldsProps) {
+export function FormFields({topic, children, borderTop, buttonSchedule }: FormFieldsProps) {
   
   return (
     <div className="w-full h-full flex flex-col gap-4">
