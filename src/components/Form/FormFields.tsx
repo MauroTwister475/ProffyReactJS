@@ -18,7 +18,6 @@ export function FormFields({topic, children, borderTop, buttonSchedule }: FormFi
         { buttonSchedule && 
           <button 
             className="text-violet-700 font-semibold text-[1.4rem] cursor-pointer"
-            onClick={onAddNewSchedule}
           >
             + Novo horário
           </button>}
